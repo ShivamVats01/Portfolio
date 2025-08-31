@@ -283,27 +283,29 @@ export default function PortfolioPage() {
               </section>
 
               <section id="experience" ref={sectionRefs.experience} className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24">
-                <AnimatedElement>
-                  <h2 className="text-2xl font-bold text-lightest-slate mb-8 sticky top-0 bg-navy/75 backdrop-blur-sm py-4 -mx-6 px-6">Experience</h2>
-                  <div>
-                    {experienceData.map((exp, index) => (
-                      <div key={index} className="mb-12">
-                        <div className="flex justify-between items-baseline">
-                          <h3 className="font-medium text-lg text-lightest-slate">{exp.title}</h3>
-                          <p className="text-sm text-slate">{exp.date}</p>
-                        </div>
-                        <p className="text-md text-cyan mb-3">{exp.company}</p>
-                        <p className="text-slate mb-4">{exp.description}</p>
-                        <ul className="flex flex-wrap gap-2">
-                          {exp.skills.map((skill, i) => (
-                            <li key={i} className="flex items-center rounded-full bg-cyan/10 px-3 py-1 text-xs font-medium text-cyan">{skill}</li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
-                  </div>
-                </AnimatedElement>
-              </section>
+  <AnimatedElement>
+    <h2 className="text-2xl font-bold text-lightest-slate mb-8 sticky top-0 bg-navy/75 backdrop-blur-sm py-4 -mx-6 px-6">Experience</h2>
+    <div>
+      {experienceData.map((exp, index) => (
+        <div key={index} className="mb-12">
+          <div className="flex justify-between items-baseline">
+            <h3 className="font-medium text-lg text-lightest-slate">{exp.title}</h3>
+            {/* FIX: Changed exp.date to exp.duration */}
+            <p className="text-sm text-slate">{exp.duration}</p>
+          </div>
+          <p className="text-md text-cyan mb-3">{exp.company}</p>
+          <p className="text-slate mb-4">{exp.description}</p>
+          <ul className="flex flex-wrap gap-2">
+            {/* FIX: Changed exp.skills to exp.technologies */}
+            {exp.technologies.map((skill, i) => (
+              <li key={i} className="flex items-center rounded-full bg-cyan/10 px-3 py-1 text-xs font-medium text-cyan">{skill}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </AnimatedElement>
+</section>
 
               <section id="projects" ref={sectionRefs.projects} className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24">
                 <AnimatedElement>
